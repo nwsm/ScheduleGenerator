@@ -2,3 +2,4 @@ Manager,Cashier,Dishes,Cook,
 Eric,Newsom,0110,10,25
 Zach,Kovach,1111,30,45
 Alex,Blanchard,0111,20,35
+Temp,Orary,0010,05,15

@@ -6,7 +6,7 @@ public class employee {
 	boolean[] jobs;
 	int minHours;
 	int maxHours;
-	
+	 
 	employee(String FN, String LN, boolean[] Jobs, int minH, int maxH){
 		firstName=FN;
 		lastName=LN;

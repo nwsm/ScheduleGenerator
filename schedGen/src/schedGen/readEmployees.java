@@ -28,8 +28,12 @@ public class readEmployees{
 			numEmployees++;
 		}
 		br.close();
+		if(numEmployees<0){
+			employee[] temp = null;
+			return temp;	//return empty array if file is empty		
+			
+		}
 		employee[] employees=new employee[numEmployees];
-		
 		br= new BufferedReader(new FileReader(file));
 		
 		String[] allJobs= new String[numJobs];
@@ -84,6 +88,7 @@ public class readEmployees{
 			minHours="";
 			minHours=""+lineChar[iter]+lineChar[iter+1]; //reads min hours
 			iter+=3;
+			System.out.println(x +  " " + iter);
 			maxHours=""+lineChar[iter]+lineChar[iter+1]; //max hours
 			
 			employees[x]=new employee(firstName,lastName,jobs,Integer.parseInt(minHours),Integer.parseInt(maxHours));
