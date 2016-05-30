@@ -88,7 +88,6 @@ public class readEmployees{
 			minHours="";
 			minHours=""+lineChar[iter]+lineChar[iter+1]; //reads min hours
 			iter+=3;
-			System.out.println(x +  " " + iter);
 			maxHours=""+lineChar[iter]+lineChar[iter+1]; //max hours
 			
 			employees[x]=new employee(firstName,lastName,jobs,Integer.parseInt(minHours),Integer.parseInt(maxHours));

@@ -15,14 +15,14 @@ public class employee {
 		maxHours=maxH;
 	}
 	
-	public String toString(){
-		String output="";
+	public String toString(){ 	//whenever you try to convert an employee variable to String, 
+		String output="";		//like if you call System.out.println(empVar);, this gets called.
 		output+=firstName + " " + lastName + " ";
 		for(int i=0; i<jobs.length; i++)
 			output+=jobs[i];
 		output+=" " + minHours + " " + maxHours;
 		
-		return output;
+		return output;	//basically it makes a string that displays all the employee variables.
 	
 	}
 	
