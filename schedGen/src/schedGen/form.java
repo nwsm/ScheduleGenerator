@@ -9,13 +9,16 @@ import javax.swing.BoxLayout;
 import javax.swing.JTextPane;
 import javax.swing.JTextArea;
 import javax.swing.JLabel;
+import javax.swing.JTextField;
 
 public class form {
 
-	employee[] emps;
+	static employee[] emps;
 	
 	private JFrame frame;
 
+	
+	public JTextArea textArea;
 	/**
 	 * Launch the application.
 	 */
@@ -23,7 +26,7 @@ public class form {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					form window = new form();
+					form window = new form(emps);
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -40,11 +43,6 @@ public class form {
 		initialize();
 		
 	}
-	
-	public form(){
-		initialize();
-		
-	}
 
 	/**
 	 * Initialize the contents of the frame.
@@ -55,5 +53,11 @@ public class form {
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
+		textArea = new JTextArea();
+		frame.getContentPane().add(textArea, BorderLayout.NORTH);
+		for(int i=0; i<emps.length; i++){
+			textArea.append(emps[i]+"\n");
+			
+		}
 	}
 }
