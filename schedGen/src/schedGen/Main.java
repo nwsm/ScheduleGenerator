@@ -1,21 +1,30 @@
 package schedGen;
 
-import java.io.IOException;
+import java.sql.*;
+
 
 public class Main {
 
-	public static void main(String args[]) throws IOException{
-			readEmployees temp = new readEmployees();
-			employee[] emps = temp.readFile();
-			if(emps==null)
-				System.out.println("Empty file");
-			else if(emps.length==0)
-				System.out.println("No employees");
-			else{
-				for(int i=0; i<emps.length; i++)
-					System.out.println(emps[i]);
-				form form1 = new form(emps);
-				form1.main(args);
+	public static void main(String args[]) {
+		String dbName = "sql5121832";
+		
+			try{
+				String url = "jdbc:mysql://sql5.freemysqlhosting.net:3306/";
+				String userName = "sql5121832";
+				String password = "WncM9gyuA9";
+				String driver = "com.mysql.jdbc.Driver";
+				Connection connection = DriverManager.getConnection(url + dbName, userName, password);
+				
+				Statement myStmt = connection.createStatement();
+				
+				ResultSet myRs = myStmt.executeQuery("select * from employees");
+				while (myRs.next()){
+					System.out.println(myRs.getString("lastName") + ", " + myRs.getString("firstName"));
+					
+				}
+			}catch (Exception exc){
+				exc.printStackTrace();
 			}
+			
 	}	
 }

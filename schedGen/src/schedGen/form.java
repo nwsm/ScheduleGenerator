@@ -56,8 +56,7 @@ public class form {
 		textArea = new JTextArea();
 		frame.getContentPane().add(textArea, BorderLayout.NORTH);
 		for(int i=0; i<emps.length; i++){
-			textArea.append(emps[i]+"\n");
-			
+			textArea.append(emps[i]+"\n");		
 		}
 	}
 }
