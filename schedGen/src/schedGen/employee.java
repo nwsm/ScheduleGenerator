@@ -1,7 +1,5 @@
 package schedGen;
-//commentttttttttt
-//also a comment
-//hello
+
 public class employee {
 	String firstName;
 	String lastName;
