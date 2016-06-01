@@ -185,7 +185,7 @@ public class editEmployees {
 								+addEmpThurs.getText()+"','"+addEmpFri.getText()+"','"+addEmpSat.getText()+"'";
 						try{
 							System.out.println("insert into employees values("+str+")");
-						myStmt.executeUpdate("insert into employees values("+str+")");
+							myStmt.executeUpdate("insert into employees values("+str+")");
 						
 						//myStmt.executeUpdate("insert into employees values(15,'A','B','0110',10,20,'hi','hi','hi','hi','hi','hi','hi')");
 						}catch (Exception exc){
@@ -197,6 +197,7 @@ public class editEmployees {
 		frame.getContentPane().add(addEmployeeButton);
 		
 		addEmpFName = new JTextField();
+		addEmpFName.setText(" ");
 		addEmpFName.setBounds(11, 230, 44, 20);
 		frame.getContentPane().add(addEmpFName);
 		addEmpFName.setColumns(10);
@@ -305,6 +306,95 @@ public class editEmployees {
 		frame.getContentPane().add(lblMon);
 		
 		editEmployeeButton = new JButton("Edit Employee");
+		editEmployeeButton.addActionListener(new ActionListener() {
+			//This works when all fields are changed, but not when some are blank
+			public void actionPerformed(ActionEvent arg0) {
+				String sql="";
+				if(editEmpID.getText()!=""){			
+					if(editEmpFName.getText()!=" "){
+						if(sql!="")
+							sql+=",";
+						sql+="firstName=";
+						sql+="'"+editEmpFName.getText()+"'";
+					}
+					if(editEmpLName.getText()!=""){
+						if(sql!="")
+							sql+=",";
+						sql+="lastName=";
+						sql+="'"+editEmpLName.getText()+"'";
+					}
+					if(editEmpJobs.getText()!=""){
+						if(sql!="")
+							sql+=",";
+						sql+="jobs=";
+						sql+="'"+editEmpJobs.getText()+"'";
+					}
+					if(editEmpMin.getText()!=null){
+						if(sql!="")
+							sql+=",";
+						sql+="minHours=";
+						sql+=editEmpMin.getText();
+					}
+					if(editEmpMax.getText()!=null){
+						if(sql!="")
+							sql+=",";
+						sql+="maxHours=";
+						sql+=editEmpMax.getText();
+					}
+					if(editEmpSun.getText()!=""){
+						if(sql!="")
+							sql+=",";
+						sql+="sun=";
+						sql+="'"+editEmpSun.getText()+"'";
+					}
+					if(editEmpMon.getText()!=""){
+						if(sql!="")
+							sql+=",";
+						sql+="mon=";
+						sql+="'"+editEmpMon.getText()+"'";
+					}
+					if(editEmpTues.getText()!=""){
+						if(sql!="")
+							sql+=",";
+						sql+="tue=";
+						sql+="'"+editEmpTues.getText()+"'";
+					}
+					if(editEmpWed.getText()!=""){
+						if(sql!="")
+							sql+=",";
+						sql+="wed=";
+						sql+="'"+editEmpWed.getText()+"'";
+					}
+					if(editEmpThurs.getText()!=""){
+						if(sql!="")
+							sql+=",";
+						sql+="thu=";
+						sql+="'"+editEmpThurs.getText()+"'";
+					}
+					if(editEmpFri.getText()!=""){
+						if(sql!="")
+							sql+=",";
+						sql+="fri=";
+						sql+="'"+editEmpFri.getText()+"'";
+					}
+					if(editEmpSat.getText()!=""){
+						if(sql!="")
+							sql+=",";
+						sql+="sat=";
+						sql+="'"+editEmpSat.getText()+"'";
+					}
+					
+					try{
+						sql="update employees set "+sql+" where employeeID="+editEmpID.getText();
+						System.out.println(sql);
+						myStmt.executeUpdate(sql);				
+					}catch (Exception exc){
+						System.out.println(exc);
+					}
+					
+				}
+			}
+		});
 		editEmployeeButton.setBounds(10, 268, 110, 23);
 		frame.getContentPane().add(editEmployeeButton);
 		
