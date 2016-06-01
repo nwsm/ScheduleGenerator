@@ -121,19 +121,19 @@ public class editEmployees {
 	 */
 	private void initialize(final Statement myStmt){
 		frame = new JFrame();
-		frame.setBounds(100, 100, 675, 432);
+		frame.setBounds(100, 100, 810, 423);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 11, 414, 157);
+		scrollPane.setBounds(10, 11, 636, 157);
 		frame.getContentPane().add(scrollPane);
 		
 		employeesTable = new JTable();
 		scrollPane.setViewportView(employeesTable);
 		
-		JButton loadDataButton = new JButton("Load Employees");
-		loadDataButton.addActionListener(new ActionListener() {
+		JButton basicInfoButton = new JButton("Load Basic Info");
+		basicInfoButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try{
 					myRs = myStmt.executeQuery("select employeeID, firstName, lastName, jobs, minHours, maxHours from employees");
@@ -143,11 +143,11 @@ public class editEmployees {
 				}
 			}
 		});
-		loadDataButton.setBounds(434, 27, 167, 33);
-		frame.getContentPane().add(loadDataButton);
+		basicInfoButton.setBounds(656, 11, 128, 20);
+		frame.getContentPane().add(basicInfoButton);
 		
 		deleteID = new JTextField();
-		deleteID.setBounds(515, 148, 86, 20);
+		deleteID.setBounds(728, 149, 56, 20);
 		frame.getContentPane().add(deleteID);
 		deleteID.setColumns(10);
 		
@@ -177,11 +177,11 @@ public class editEmployees {
 				editEmpSat.setText("");
 			}
 		});
-		deleteEmployeeButton.setBounds(434, 114, 167, 23);
+		deleteEmployeeButton.setBounds(656, 121, 128, 23);
 		frame.getContentPane().add(deleteEmployeeButton);
 		
 		JLabel lblNewLabel = new JLabel("Delete ID:");
-		lblNewLabel.setBounds(458, 151, 61, 14);
+		lblNewLabel.setBounds(657, 152, 61, 14);
 		frame.getContentPane().add(lblNewLabel);
 		
 		JButton addEmployeeButton = new JButton("Add Employee");
@@ -228,111 +228,111 @@ public class editEmployees {
 		
 		addEmpFName = new JTextField();
 		addEmpFName.setText(" ");
-		addEmpFName.setBounds(11, 230, 44, 20);
+		addEmpFName.setBounds(20, 230, 50, 20);
 		frame.getContentPane().add(addEmpFName);
 		addEmpFName.setColumns(10);
 		
 		addEmpLName = new JTextField();
-		addEmpLName.setBounds(65, 230, 44, 20);
+		addEmpLName.setBounds(84, 230, 50, 20);
 		frame.getContentPane().add(addEmpLName);
 		addEmpLName.setColumns(10);
 		
 		addEmpJobs = new JTextField();
 		addEmpJobs.setColumns(10);
-		addEmpJobs.setBounds(119, 230, 44, 20);
+		addEmpJobs.setBounds(148, 230, 50, 20);
 		frame.getContentPane().add(addEmpJobs);
 		
 		addEmpMin = new JTextField();
 		addEmpMin.setColumns(10);
-		addEmpMin.setBounds(173, 230, 44, 20);
+		addEmpMin.setBounds(212, 230, 50, 20);
 		frame.getContentPane().add(addEmpMin);
 		
 		addEmpMax = new JTextField();
 		addEmpMax.setColumns(10);
-		addEmpMax.setBounds(227, 230, 44, 20);
+		addEmpMax.setBounds(276, 230, 50, 20);
 		frame.getContentPane().add(addEmpMax);
 		
 		addEmpSun = new JTextField();
 		addEmpSun.setColumns(10);
-		addEmpSun.setBounds(281, 230, 44, 20);
+		addEmpSun.setBounds(340, 230, 50, 20);
 		frame.getContentPane().add(addEmpSun);
 		
 		addEmpTues = new JTextField();
 		addEmpTues.setColumns(10);
-		addEmpTues.setBounds(389, 230, 44, 20);
+		addEmpTues.setBounds(468, 230, 50, 20);
 		frame.getContentPane().add(addEmpTues);
 		
 		addEmpWed = new JTextField();
 		addEmpWed.setColumns(10);
-		addEmpWed.setBounds(443, 230, 44, 20);
+		addEmpWed.setBounds(532, 230, 50, 20);
 		frame.getContentPane().add(addEmpWed);
 		
 		addEmpThurs = new JTextField();
 		addEmpThurs.setColumns(10);
-		addEmpThurs.setBounds(497, 230, 44, 20);
+		addEmpThurs.setBounds(596, 230, 50, 20);
 		frame.getContentPane().add(addEmpThurs);
 		
 		addEmpFri = new JTextField();
 		addEmpFri.setColumns(10);
-		addEmpFri.setBounds(551, 230, 44, 20);
+		addEmpFri.setBounds(660, 230, 50, 20);
 		frame.getContentPane().add(addEmpFri);
 		
 		addEmpMon = new JTextField();
 		addEmpMon.setColumns(10);
-		addEmpMon.setBounds(335, 230, 44, 20);
+		addEmpMon.setBounds(404, 230, 50, 20);
 		frame.getContentPane().add(addEmpMon);
 		
 		addEmpSat = new JTextField();
 		addEmpSat.setColumns(10);
-		addEmpSat.setBounds(605, 230, 44, 20);
+		addEmpSat.setBounds(724, 230, 50, 20);
 		frame.getContentPane().add(addEmpSat);
 		
 		lblFname = new JLabel("FName");
-		lblFname.setBounds(18, 213, 33, 14);
+		lblFname.setBounds(30, 213, 50, 14);
 		frame.getContentPane().add(lblFname);
 		
 		lblLname = new JLabel("LName");
-		lblLname.setBounds(72, 213, 33, 14);
+		lblLname.setBounds(90, 213, 44, 14);
 		frame.getContentPane().add(lblLname);
 		
 		lblMinhrs = new JLabel("minHrs");
-		lblMinhrs.setBounds(180, 213, 33, 14);
+		lblMinhrs.setBounds(212, 213, 50, 14);
 		frame.getContentPane().add(lblMinhrs);
 		
 		lblJobs = new JLabel("Jobs");
-		lblJobs.setBounds(128, 213, 33, 14);
+		lblJobs.setBounds(158, 213, 33, 14);
 		frame.getContentPane().add(lblJobs);
 		
 		lblSun = new JLabel("Sun");
-		lblSun.setBounds(293, 213, 33, 14);
+		lblSun.setBounds(350, 213, 33, 14);
 		frame.getContentPane().add(lblSun);
 		
 		lblMaxhrs = new JLabel("maxHrs");
-		lblMaxhrs.setBounds(230, 213, 44, 14);
+		lblMaxhrs.setBounds(280, 213, 56, 14);
 		frame.getContentPane().add(lblMaxhrs);
 		
 		lblSat = new JLabel("Sat");
-		lblSat.setBounds(617, 213, 33, 14);
+		lblSat.setBounds(734, 213, 33, 14);
 		frame.getContentPane().add(lblSat);
 		
 		lblFri = new JLabel("Fri");
-		lblFri.setBounds(565, 213, 33, 14);
+		lblFri.setBounds(674, 213, 33, 14);
 		frame.getContentPane().add(lblFri);
 		
 		lblThurs = new JLabel("Thurs");
-		lblThurs.setBounds(503, 213, 33, 14);
+		lblThurs.setBounds(606, 213, 33, 14);
 		frame.getContentPane().add(lblThurs);
 		
 		lblWed = new JLabel("Wed");
-		lblWed.setBounds(450, 213, 33, 14);
+		lblWed.setBounds(542, 213, 33, 14);
 		frame.getContentPane().add(lblWed);
 		
 		lblTues = new JLabel("Tues");
-		lblTues.setBounds(398, 213, 33, 14);
+		lblTues.setBounds(478, 213, 33, 14);
 		frame.getContentPane().add(lblTues);
 		
 		lblMon = new JLabel("Mon");
-		lblMon.setBounds(345, 213, 33, 14);
+		lblMon.setBounds(414, 213, 33, 14);
 		frame.getContentPane().add(lblMon);
 		
 		editEmployeeButton = new JButton("Edit Employee");
@@ -445,110 +445,110 @@ public class editEmployees {
 		
 		editEmpFName = new JTextField();
 		editEmpFName.setColumns(10);
-		editEmpFName.setBounds(11, 319, 44, 20);
+		editEmpFName.setBounds(20, 319, 50, 20);
 		frame.getContentPane().add(editEmpFName);
 		
 		editEmpLName = new JTextField();
 		editEmpLName.setColumns(10);
-		editEmpLName.setBounds(65, 319, 44, 20);
+		editEmpLName.setBounds(84, 319, 50, 20);
 		frame.getContentPane().add(editEmpLName);
 		
 		editEmpJobs = new JTextField();
 		editEmpJobs.setColumns(10);
-		editEmpJobs.setBounds(119, 319, 44, 20);
+		editEmpJobs.setBounds(148, 319, 50, 20);
 		frame.getContentPane().add(editEmpJobs);
 		
 		editEmpMin = new JTextField();
 		editEmpMin.setColumns(10);
-		editEmpMin.setBounds(173, 319, 44, 20);
+		editEmpMin.setBounds(212, 319, 50, 20);
 		frame.getContentPane().add(editEmpMin);
 		
 		editEmpMax = new JTextField();
 		editEmpMax.setColumns(10);
-		editEmpMax.setBounds(227, 319, 44, 20);
+		editEmpMax.setBounds(276, 319, 50, 20);
 		frame.getContentPane().add(editEmpMax);
 		
 		editEmpSun = new JTextField();
 		editEmpSun.setColumns(10);
-		editEmpSun.setBounds(281, 319, 44, 20);
+		editEmpSun.setBounds(340, 319, 50, 20);
 		frame.getContentPane().add(editEmpSun);
 		
 		editEmpTues = new JTextField();
 		editEmpTues.setColumns(10);
-		editEmpTues.setBounds(389, 319, 44, 20);
+		editEmpTues.setBounds(468, 319, 50, 20);
 		frame.getContentPane().add(editEmpTues);
 		
 		editEmpWed = new JTextField();
 		editEmpWed.setColumns(10);
-		editEmpWed.setBounds(443, 319, 44, 20);
+		editEmpWed.setBounds(532, 319, 50, 20);
 		frame.getContentPane().add(editEmpWed);
 		
 		editEmpThurs = new JTextField();
 		editEmpThurs.setColumns(10);
-		editEmpThurs.setBounds(497, 319, 44, 20);
+		editEmpThurs.setBounds(596, 319, 50, 20);
 		frame.getContentPane().add(editEmpThurs);
 		
 		editEmpFri = new JTextField();
 		editEmpFri.setColumns(10);
-		editEmpFri.setBounds(551, 319, 44, 20);
+		editEmpFri.setBounds(660, 319, 50, 20);
 		frame.getContentPane().add(editEmpFri);
 		
 		editEmpMon = new JTextField();
 		editEmpMon.setColumns(10);
-		editEmpMon.setBounds(335, 319, 44, 20);
+		editEmpMon.setBounds(404, 319, 50, 20);
 		frame.getContentPane().add(editEmpMon);
 		
 		editEmpSat = new JTextField();
 		editEmpSat.setColumns(10);
-		editEmpSat.setBounds(605, 319, 44, 20);
+		editEmpSat.setBounds(724, 319, 50, 20);
 		frame.getContentPane().add(editEmpSat);
 		
 		label = new JLabel("FName");
-		label.setBounds(18, 302, 33, 14);
+		label.setBounds(30, 302, 60, 14);
 		frame.getContentPane().add(label);
 		
 		label_1 = new JLabel("LName");
-		label_1.setBounds(72, 302, 33, 14);
+		label_1.setBounds(90, 302, 44, 14);
 		frame.getContentPane().add(label_1);
 		
 		label_2 = new JLabel("minHrs");
-		label_2.setBounds(180, 302, 33, 14);
+		label_2.setBounds(212, 302, 50, 14);
 		frame.getContentPane().add(label_2);
 		
 		label_3 = new JLabel("Jobs");
-		label_3.setBounds(128, 302, 33, 14);
+		label_3.setBounds(158, 302, 33, 14);
 		frame.getContentPane().add(label_3);
 		
 		label_4 = new JLabel("Sun");
-		label_4.setBounds(293, 302, 33, 14);
+		label_4.setBounds(350, 302, 33, 14);
 		frame.getContentPane().add(label_4);
 		
 		label_5 = new JLabel("maxHrs");
-		label_5.setBounds(230, 302, 44, 14);
+		label_5.setBounds(280, 302, 56, 14);
 		frame.getContentPane().add(label_5);
 		
 		label_6 = new JLabel("Sat");
-		label_6.setBounds(617, 302, 33, 14);
+		label_6.setBounds(734, 302, 33, 14);
 		frame.getContentPane().add(label_6);
 		
 		label_7 = new JLabel("Fri");
-		label_7.setBounds(565, 302, 33, 14);
+		label_7.setBounds(674, 302, 33, 14);
 		frame.getContentPane().add(label_7);
 		
 		label_8 = new JLabel("Thurs");
-		label_8.setBounds(503, 302, 33, 14);
+		label_8.setBounds(606, 302, 33, 14);
 		frame.getContentPane().add(label_8);
 		
 		label_9 = new JLabel("Wed");
-		label_9.setBounds(450, 302, 33, 14);
+		label_9.setBounds(542, 302, 33, 14);
 		frame.getContentPane().add(label_9);
 		
 		label_10 = new JLabel("Tues");
-		label_10.setBounds(398, 302, 33, 14);
+		label_10.setBounds(478, 302, 33, 14);
 		frame.getContentPane().add(label_10);
 		
 		label_11 = new JLabel("Mon");
-		label_11.setBounds(345, 302, 33, 14);
+		label_11.setBounds(414, 302, 33, 14);
 		frame.getContentPane().add(label_11);
 		
 		editEmpID = new JTextField();
@@ -568,5 +568,19 @@ public class editEmployees {
 		addEmpID.setColumns(10);
 		addEmpID.setBounds(148, 179, 34, 20);
 		frame.getContentPane().add(addEmpID);
+		
+		JButton btnLoadAvailability = new JButton("Load Availability");
+		btnLoadAvailability.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				try{
+					myRs = myStmt.executeQuery("select employeeID as 'ID', lastName, sun, mon, tue, wed, thu, fri, sat from employees");
+					employeesTable.setModel(DbUtils.resultSetToTableModel(myRs));
+				}catch (Exception e){
+					System.out.println(e);
+				}
+			}
+		});
+		btnLoadAvailability.setBounds(656, 42, 128, 20);
+		frame.getContentPane().add(btnLoadAvailability);
 	}
 }
