@@ -18,10 +18,15 @@ public class Main {
 				Statement myStmt = connection.createStatement();
 				
 				ResultSet myRs = myStmt.executeQuery("select * from employees");
-				while (myRs.next()){
-					System.out.println(myRs.getString("lastName") + ", " + myRs.getString("firstName"));
+				if (!myRs.isBeforeFirst()) {    		//if ResultSet is empty, say so. Otherwise, print out all names
+					 System.out.println("No data"); 
+				}else{
+					while (myRs.next()){
+						System.out.println(myRs.getString("lastName") + ", " + myRs.getString("firstName"));
 					
+					}
 				}
+				
 			}catch (Exception exc){
 				exc.printStackTrace();
 			}
