@@ -12,7 +12,6 @@ public class Main {
 				String url = "jdbc:mysql://sql5.freemysqlhosting.net:3306/";
 				String userName = "sql5121832";
 				String password = "WncM9gyuA9";
-				String driver = "com.mysql.jdbc.Driver";
 				Connection connection = DriverManager.getConnection(url + dbName, userName, password);
 				
 				Statement myStmt = connection.createStatement();
@@ -30,6 +29,8 @@ public class Main {
 			}catch (Exception exc){
 				exc.printStackTrace();
 			}
+			form form1=new form();
+			form1.main(args);
 			
 	}	
 }

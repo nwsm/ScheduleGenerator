@@ -10,15 +10,13 @@ import javax.swing.JTextPane;
 import javax.swing.JTextArea;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import javax.swing.JButton;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class form {
-
-	static employee[] emps;
 	
 	private JFrame frame;
-
-	
-	public JTextArea textArea;
 	/**
 	 * Launch the application.
 	 */
@@ -26,7 +24,7 @@ public class form {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					form window = new form(emps);
+					form window = new form();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -38,8 +36,7 @@ public class form {
 	/**
 	 * Create the application.
 	 */
-	public form(employee[] Emps) {
-		emps=Emps;
+	public form() {
 		initialize();
 		
 	}
@@ -53,10 +50,15 @@ public class form {
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		textArea = new JTextArea();
-		frame.getContentPane().add(textArea, BorderLayout.NORTH);
-		for(int i=0; i<emps.length; i++){
-			textArea.append(emps[i]+"\n");		
-		}
+		JButton btnNewButton = new JButton("Edit Employees");
+		btnNewButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				editEmployees form2 = new editEmployees();
+				String[] str=null;
+				form2.main(str);
+			}
+		});
+		frame.getContentPane().add(btnNewButton, BorderLayout.NORTH);
 	}
 }
