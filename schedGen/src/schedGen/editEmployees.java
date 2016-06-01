@@ -162,6 +162,19 @@ public class editEmployees {
 				}catch (Exception e){
 					System.out.println(e);
 				}
+				editEmpID.setText("");
+				editEmpFName.setText("");
+				editEmpLName.setText("");
+				editEmpJobs.setText("");
+				editEmpMin.setText("");
+				editEmpMax.setText("");
+				editEmpSun.setText("");
+				editEmpMon.setText("");
+				editEmpTues.setText("");
+				editEmpWed.setText("");
+				editEmpThurs.setText("");
+				editEmpFri.setText("");
+				editEmpSat.setText("");
 			}
 		});
 		deleteEmployeeButton.setBounds(434, 114, 167, 23);
@@ -173,12 +186,12 @@ public class editEmployees {
 		
 		JButton addEmployeeButton = new JButton("Add Employee");
 		addEmployeeButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e){ //the following is a shitshow
-				if(addEmpFName.getText()!=""&&addEmpLName.getText()!=""&&addEmpJobs.getText()!=""
-						&&addEmpMin.getText()!=""&&addEmpMax.getText()!=""&&addEmpSun.getText()!=""
-						&&addEmpMon.getText()!=""&&addEmpTues.getText()!=""&&addEmpWed.getText()!=""
-						&&addEmpThurs.getText()!=""&&addEmpFri.getText()!=""&&addEmpSat.getText()!="")
-						System.out.println("hi");
+			public void actionPerformed(ActionEvent e){ //the if statement makes sure all relevant textfields have data in them
+				if(!addEmpFName.getText().equals("")&&!addEmpLName.equals("")&&!addEmpJobs.equals("")
+						&&!addEmpMin.equals("")&&!addEmpMax.equals("")&&!addEmpSun.equals("")
+						&&!addEmpMon.getText().equals("")&&!addEmpTues.getText().equals("")&&!addEmpWed.getText().equals("")
+						&&!addEmpThurs.getText().equals("")&&!addEmpFri.getText().equals("")&&!addEmpSat.getText().equals("")){
+						
 						String str=addEmpID.getText()+",'"+addEmpFName.getText()+"','"+addEmpLName.getText()+"','"+addEmpJobs.getText()+"',"
 								+addEmpMin.getText()+","+addEmpMax.getText()+",'"+addEmpSun.getText()+"','"
 								+addEmpMon.getText()+"','"+addEmpTues.getText()+"','"+addEmpWed.getText()+"','"
@@ -186,11 +199,28 @@ public class editEmployees {
 						try{
 							System.out.println("insert into employees values("+str+")");
 							myStmt.executeUpdate("insert into employees values("+str+")");
+							myRs = myStmt.executeQuery("select employeeID, firstName, lastName, jobs, minHours, maxHours from employees");
+							employeesTable.setModel(DbUtils.resultSetToTableModel(myRs));							
 						
-						//myStmt.executeUpdate("insert into employees values(15,'A','B','0110',10,20,'hi','hi','hi','hi','hi','hi','hi')");
+						
 						}catch (Exception exc){
 							System.out.print(exc);
 						}
+						//Clear all the relevant textfields
+						addEmpID.setText("");
+						addEmpFName.setText("");
+						addEmpLName.setText("");
+						addEmpJobs.setText("");
+						addEmpMin.setText("");
+						addEmpMax.setText("");
+						addEmpSun.setText("");
+						addEmpMon.setText("");
+						addEmpTues.setText("");
+						addEmpWed.setText("");
+						addEmpThurs.setText("");
+						addEmpFri.setText("");
+						addEmpSat.setText("");
+			}
 			}
 		});
 		addEmployeeButton.setBounds(10, 179, 110, 23);
@@ -307,91 +337,106 @@ public class editEmployees {
 		
 		editEmployeeButton = new JButton("Edit Employee");
 		editEmployeeButton.addActionListener(new ActionListener() {
-			//This works when all fields are changed, but not when some are blank
 			public void actionPerformed(ActionEvent arg0) {
 				String sql="";
-				if(editEmpID.getText()!=""){			
-					if(editEmpFName.getText()!=" "){
-						if(sql!="")
-							sql+=",";
+				if(!editEmpID.getText().equals("")){	//check that an ID is given		
+					if(!editEmpFName.getText().equals("")){ //if a first name is given, add the correct code to change
+						if(sql!="")							//the syntax of the sql statement to change the first name
+							sql+=",";						//I do this for ever relevant text field
 						sql+="firstName=";
 						sql+="'"+editEmpFName.getText()+"'";
 					}
-					if(editEmpLName.getText()!=""){
+					if(!editEmpLName.getText().equals("")){
 						if(sql!="")
 							sql+=",";
 						sql+="lastName=";
 						sql+="'"+editEmpLName.getText()+"'";
 					}
-					if(editEmpJobs.getText()!=""){
+					if(!editEmpJobs.getText().equals("")){
 						if(sql!="")
 							sql+=",";
 						sql+="jobs=";
 						sql+="'"+editEmpJobs.getText()+"'";
 					}
-					if(editEmpMin.getText()!=null){
+					if(!editEmpMin.getText().equals("")){
 						if(sql!="")
 							sql+=",";
 						sql+="minHours=";
 						sql+=editEmpMin.getText();
 					}
-					if(editEmpMax.getText()!=null){
+					if(!editEmpMax.getText().equals("")){
 						if(sql!="")
 							sql+=",";
 						sql+="maxHours=";
 						sql+=editEmpMax.getText();
 					}
-					if(editEmpSun.getText()!=""){
+					if(!editEmpSun.getText().equals("")){
 						if(sql!="")
 							sql+=",";
 						sql+="sun=";
 						sql+="'"+editEmpSun.getText()+"'";
 					}
-					if(editEmpMon.getText()!=""){
+					if(!editEmpMon.getText().equals("")){
 						if(sql!="")
 							sql+=",";
 						sql+="mon=";
 						sql+="'"+editEmpMon.getText()+"'";
 					}
-					if(editEmpTues.getText()!=""){
+					if(!editEmpTues.getText().equals("")){
 						if(sql!="")
 							sql+=",";
 						sql+="tue=";
 						sql+="'"+editEmpTues.getText()+"'";
 					}
-					if(editEmpWed.getText()!=""){
+					if(!editEmpWed.getText().equals("")){
 						if(sql!="")
 							sql+=",";
 						sql+="wed=";
 						sql+="'"+editEmpWed.getText()+"'";
 					}
-					if(editEmpThurs.getText()!=""){
+					if(!editEmpThurs.getText().equals("")){
 						if(sql!="")
 							sql+=",";
 						sql+="thu=";
 						sql+="'"+editEmpThurs.getText()+"'";
 					}
-					if(editEmpFri.getText()!=""){
+					if(!editEmpFri.getText().equals("")){
 						if(sql!="")
 							sql+=",";
 						sql+="fri=";
 						sql+="'"+editEmpFri.getText()+"'";
 					}
-					if(editEmpSat.getText()!=""){
+					if(!editEmpSat.getText().equals("")){
 						if(sql!="")
 							sql+=",";
 						sql+="sat=";
 						sql+="'"+editEmpSat.getText()+"'";
 					}
 					
-					try{
+					try{	//execute sql statment
 						sql="update employees set "+sql+" where employeeID="+editEmpID.getText();
 						System.out.println(sql);
-						myStmt.executeUpdate(sql);				
+						myStmt.executeUpdate(sql);
+						myRs = myStmt.executeQuery("select employeeID, firstName, lastName, jobs, minHours, maxHours from employees");
+						employeesTable.setModel(DbUtils.resultSetToTableModel(myRs));
 					}catch (Exception exc){
 						System.out.println(exc);
 					}
 					
+					//clear relevant text fields
+					editEmpID.setText("");
+					editEmpFName.setText("");
+					editEmpLName.setText("");
+					editEmpJobs.setText("");
+					editEmpMin.setText("");
+					editEmpMax.setText("");
+					editEmpSun.setText("");
+					editEmpMon.setText("");
+					editEmpTues.setText("");
+					editEmpWed.setText("");
+					editEmpThurs.setText("");
+					editEmpFri.setText("");
+					editEmpSat.setText("");
 				}
 			}
 		});
